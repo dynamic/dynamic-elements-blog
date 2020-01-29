@@ -1,0 +1,76 @@
+DNADesign\Elemental\Models\ElementalArea:
+  page1:
+    OwnerClassName: Page
+  blog1:
+    OwnerClassName: SilverStripe\Blog\Model\Blog
+  blog2:
+    OwnerClassName: SilverStripe\Blog\Model\Blog
+  fakePage1:
+    OwnerClassName: Dynamic\Elements\Blog\Elements\Tests\Fake\Page
+
+SilverStripe\Widgets\Model\WidgetArea:
+  area1:
+    ClassName: SilverStripe\Widgets\Model\WidgetArea
+  area2:
+    ClassName: SilverStripe\Widgets\Model\WidgetArea
+
+Page:
+  page1:
+    Title: Page 1
+    URLSegment: page1
+    SideBarID: =>SilverStripe\Widgets\Model\WidgetArea.area1
+    ElementalAreaID: =>DNADesign\Elemental\Models\ElementalArea.page1
+
+SilverStripe\Blog\Model\Blog:
+  blog1:
+    Title: Blog 1
+    URLSegment: blog
+    InheritSideBar: 1
+    ParentID: =>Page.page1
+    ElementalAreaID: =>DNADesign\Elemental\Models\ElementalArea.blog1
+  blog2:
+    Title: Blog 1
+    URLSegment: blog
+    SideBarID: =>SilverStripe\Widgets\Model\WidgetArea.area2
+    ElementalAreaID: =>DNADesign\Elemental\Models\ElementalArea.blog2
+
+SilverStripe\Blog\Model\BlogPost:
+  post1:
+    Title: Post 1
+    URLSegment: post1
+    ParentID: =>SilverStripe\Blog\Model\Blog.blog1
+  post2:
+    Title: Post 2
+    URLSegment: post2
+    ParentID: =>SilverStripe\Blog\Model\Blog.blog1
+  post3:
+    Title: Post 3
+    URLSegment: post3
+    ParentID: =>SilverStripe\Blog\Model\Blog.blog1
+  post4:
+    Title: Post 4
+    URLSegment: post4
+    ParentID: =>SilverStripe\Blog\Model\Blog.blog1
+
+Dynamic\Elements\Blog\Elements\Tests\Fake\Page:
+  fakePage1:
+    Title: Fake Page 1
+    ElementalAreaID: =>DNADesign\Elemental\Models\ElementalArea.fakePage1
+
+Dynamic\Elements\Blog\Elements\ElementBlogOverview:
+  block1:
+    ParentID: =>DNADesign\Elemental\Models\ElementalArea.blog1
+  block2:
+    ParentID: =>DNADesign\Elemental\Models\ElementalArea.blog2
+  block3:
+    ParentID: =>DNADesign\Elemental\Models\ElementalArea.page1
+  block4:
+    ParentID: =>DNADesign\Elemental\Models\ElementalArea.fakePage1
+
+SilverStripe\Blog\Widgets\BlogCategoriesWidget:
+  widget1:
+    Title: Categories
+    ParentID: =>SilverStripe\Widgets\Model\WidgetArea.area1
+  widget2:
+    Title: Categories
+    ParentID: =>SilverStripe\Widgets\Model\WidgetArea.area2
