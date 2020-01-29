@@ -1,0 +1,30 @@
+DNADesign\Elemental\Models\ElementalArea:
+  blog1:
+    OwnerClassName: SilverStripe\Blog\Model\Blog
+  fakePage1:
+    OwnerClassName: Dynamic\Elements\Blog\Tests\Fake\Page
+
+SilverStripe\Blog\Model\Blog:
+  blog1:
+    Title: Blog 1
+    URLSegment: blog1
+    ElementalAreaID: =>DNADesign\Elemental\Models\ElementalArea.blog1
+
+SilverStripe\Blog\Model\BlogPost:
+  post1:
+    Title: Post 1
+    URLSegment: post1
+    ParentID: =>SilverStripe\Blog\Model\Blog.blog1
+
+Dynamic\Elements\Blog\Tests\Fake\Page:
+  fakePage1:
+    Title: Fake Page 1
+    ElementalAreaID: =>DNADesign\Elemental\Models\ElementalArea.fakePage1
+
+Dynamic\Elements\Blog\Elements\ElementBlogOverview:
+  block1:
+    Title: Overview block 1
+    ParentID: =>DNADesign\Elemental\Models\ElementalArea.blog1
+  block2:
+    Title: Overview block 2
+    ParentID: =>DNADesign\Elemental\Models\ElementalArea.fakePage1
