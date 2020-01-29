@@ -1,6 +1,6 @@
 <?php
 
-namespace Dynamic\Elements\Blog\Elements\Tests;
+namespace Dynamic\Elements\Blog\Tests\Elements;
 
 use Dynamic\Elements\Blog\Elements\ElementBlogPosts;
 use SilverStripe\Blog\Model\Blog;
@@ -16,7 +16,7 @@ class ElementBlogPostsTest extends SapphireTest
     /**
      * @var string
      */
-    protected static $fixture_file = '../fixtures.yml';
+    protected static $fixture_file = 'ElementBlogPostsTest.yml';
 
     /**
      *

@@ -1,6 +1,6 @@
 <?php
 
-namespace Dynamic\Elements\Blog\Elements\Tests\Fake;
+namespace Dynamic\Elements\Blog\Tests\Fake;
 
 use Page as BasePage;
 use SilverStripe\Blog\Model\BlogPost;
@@ -13,7 +13,7 @@ use SilverStripe\Widgets\Model\WidgetArea;
  *
  * Class Page
  *
- * @package Dynamic\Elements\Blog\Elements\Tests\Fake
+ * @package Dynamic\Elements\Blog\Tests\Fake
  */
 class Page extends BasePage implements TestOnly
 {

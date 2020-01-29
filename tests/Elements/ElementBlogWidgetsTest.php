@@ -1,6 +1,6 @@
 <?php
 
-namespace Dynamic\Elements\Blog\Elements\Tests;
+namespace Dynamic\Elements\Blog\Tests\Elements;
 
 use Dynamic\Elements\Blog\Elements\ElementBlogWidgets;
 use SilverStripe\Dev\SapphireTest;
@@ -17,7 +17,8 @@ class ElementBlogWidgetsTest extends SapphireTest
      */
     protected $usesDatabase = true;
 
-    public function testPopulateDefaults(): void {
+    public function testPopulateDefaults(): void
+    {
         $block = ElementBlogWidgets::create();
 
         $this->assertFalse((bool) $block->ShowTitle);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Dynamic\Elements\Blog\Elements\Tests;
+namespace Dynamic\Elements\Blog\Tests\Elements;
 
 use Dynamic\Elements\Blog\Elements\ElementBlogPagination;
 use SilverStripe\Dev\SapphireTest;
@@ -17,7 +17,8 @@ class ElementBlogPaginationTest extends SapphireTest
      */
     protected $usesDatabase = true;
 
-    public function testPopulateDefaults(): void {
+    public function testPopulateDefaults(): void
+    {
         $block = ElementBlogPagination::create();
 
         $this->assertFalse((bool) $block->ShowTitle);

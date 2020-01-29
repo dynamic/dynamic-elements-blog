@@ -448,16 +448,18 @@ class ElementBlogOverview extends BaseElement
             return $this->cacheKey;
         }
 
-        $cacheKey = implode(
-            '-',
-            [
-                static::class,
-                $this->ID,
-                $this->LastEdited,
-                $this->getBlogPosts()->count(),
-                $this->getBlogPosts()->max('LastEdited')
-            ]
-        );
+        $pieces = [
+            static::class,
+            $this->ID,
+            $this->LastEdited,
+        ];
+
+        if ($this->getBlogPosts() !== null) {
+            $pieces[] = $this->getBlogPosts()->count();
+            $pieces[] = $this->getBlogPosts()->max('LastEdited');
+        }
+
+        $cacheKey = implode('-', $pieces);
 
         $this->invokeWithExtensions('updateCacheKey', $cacheKey);
 

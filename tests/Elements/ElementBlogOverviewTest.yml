@@ -6,7 +6,7 @@ DNADesign\Elemental\Models\ElementalArea:
   blog2:
     OwnerClassName: SilverStripe\Blog\Model\Blog
   fakePage1:
-    OwnerClassName: Dynamic\Elements\Blog\Elements\Tests\Fake\Page
+    OwnerClassName: Dynamic\Elements\Blog\Tests\Fake\Page
 
 SilverStripe\Widgets\Model\WidgetArea:
   area1:
@@ -52,19 +52,23 @@ SilverStripe\Blog\Model\BlogPost:
     URLSegment: post4
     ParentID: =>SilverStripe\Blog\Model\Blog.blog1
 
-Dynamic\Elements\Blog\Elements\Tests\Fake\Page:
+Dynamic\Elements\Blog\Tests\Fake\Page:
   fakePage1:
     Title: Fake Page 1
     ElementalAreaID: =>DNADesign\Elemental\Models\ElementalArea.fakePage1
 
 Dynamic\Elements\Blog\Elements\ElementBlogOverview:
   block1:
+    Title: Overview block 1
     ParentID: =>DNADesign\Elemental\Models\ElementalArea.blog1
   block2:
+    Title: Overview block 2
     ParentID: =>DNADesign\Elemental\Models\ElementalArea.blog2
   block3:
+    Title: Overview block 3
     ParentID: =>DNADesign\Elemental\Models\ElementalArea.page1
   block4:
+    Title: Overview block 4
     ParentID: =>DNADesign\Elemental\Models\ElementalArea.fakePage1
 
 SilverStripe\Blog\Widgets\BlogCategoriesWidget:

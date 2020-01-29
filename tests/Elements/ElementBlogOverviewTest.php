@@ -1,7 +1,8 @@
 <?php
 
-namespace Dynamic\Elements\Blog\Elements\Tests;
+namespace Dynamic\Elements\Blog\Tests\Elements;
 
+use DNADesign\Elemental\Extensions\ElementalPageExtension;
 use Dynamic\Elements\Blog\Elements\ElementBlogOverview;
 use Page;
 use SilverStripe\Blog\Model\Blog;
@@ -25,6 +26,7 @@ class ElementBlogOverviewTest extends SapphireTest
     protected static $required_extensions = [
         Page::class => [
             WidgetPageExtension::class,
+            ElementalPageExtension::class,
         ],
     ];
 
@@ -51,6 +53,7 @@ class ElementBlogOverviewTest extends SapphireTest
         /** @var ElementBlogOverview $block */
         $block = $this->objFromFixture(ElementBlogOverview::class, 'block1');
 
+        $this->assertNotNull($block->getBlogPosts());
         $this->assertCount(4, $block->getBlogPosts());
     }
 
@@ -127,6 +130,8 @@ class ElementBlogOverviewTest extends SapphireTest
 
         $expectedWidgets = $widgets->map('ID', 'Title')->toArray();
 
+        $this->assertNotNull($block->SideBarView());
+
         $this->assertEquals(
             $expectedWidgets,
             $block->SideBarView()->Widgets()->map('ID', 'Title')->toArray()
@@ -155,6 +160,8 @@ class ElementBlogOverviewTest extends SapphireTest
         $widgets = $sideBar->Widgets();
 
         $expectedWidgets = $widgets->map('ID', 'Title')->toArray();
+
+        $this->assertNotNull($block->SideBarView());
 
         $this->assertEquals(
             $expectedWidgets,
