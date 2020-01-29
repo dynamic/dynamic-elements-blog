@@ -70,6 +70,8 @@ Dynamic\Elements\Blog\Elements\ElementBlogOverview:
   block4:
     Title: Overview block 4
     ParentID: =>DNADesign\Elemental\Models\ElementalArea.fakePage1
+  block5:
+    Title: Overview block 5 (orphan)
 
 SilverStripe\Blog\Widgets\BlogCategoriesWidget:
   widget1:

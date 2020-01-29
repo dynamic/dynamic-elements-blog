@@ -274,18 +274,25 @@ class ElementBlogOverview extends BaseElement
     }
 
     /**
+     * We'll allow the passing of a Controller for a couple of reasons:
+     * 1) Provides a new way for you to dictate how a PaginatedList might be provided
+     * 2) Makes testing much easier...
+     *
+     * @param Controller|null $controller
      * @return PaginatedList|null
      * @throws ValidationException
      */
-    public function getPaginatedList(): ?PaginatedList
+    public function getPaginatedList(?Controller $controller = null): ?PaginatedList
     {
         // Return our cached value, if one exists
         if ($this->paginatedList !== null) {
             return $this->paginatedList;
         }
 
-        /** @var BlogController $controller */
-        $controller = Controller::curr();
+        if ($controller === null) {
+            /** @var BlogController $controller */
+            $controller = Controller::curr();
+        }
 
         // Ideally, we want to fetch the PaginatedList from the BlogController, but, if this Block is not being used on
         // a Blog page, then that will not be (immediately) possible. You have three options:

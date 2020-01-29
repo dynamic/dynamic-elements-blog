@@ -203,6 +203,17 @@ class ElementBlogOverviewTest extends SapphireTest
     /**
      * @throws ValidationException
      */
+    public function testSideBarNoParent(): void
+    {
+        /** @var ElementBlogOverview $block */
+        $block = $this->objFromFixture(ElementBlogOverview::class, 'block5');
+
+        $this->assertNull($block->SideBarView());
+    }
+
+    /**
+     * @throws ValidationException
+     */
     public function testCacheKey(): void
     {
         /** @var ElementBlogOverview $block */
